@@ -1,0 +1,5 @@
+CERTDIRECTORY
+*.key
+*.crt
+*.srl
+*.pem
