@@ -61,3 +61,11 @@ echo -e "\e[42mSuccess!\e[49m"
 echo
 echo -e "You can now use \e[93m$DOMAIN.key\e[39m and \e[93m$DOMAIN.crt\e[39m in your web server."
 echo -e "Don't forget that \e[1myou must have imported \e[93mca.crt\e[39m in your browser\e[0m to make it accept the certificate."
+
+# Read certificate output directory
+CERTDIRECTORY=$(cat ./CERTDIRECTORY)
+
+# Move files to dir
+mv "$DOMAIN.crt" "$CERTDIRECTORY"
+mv "$DOMAIN.key" "$CERTDIRECTORY"
+mv fullchain.pem "$CERTDIRECTORY"
