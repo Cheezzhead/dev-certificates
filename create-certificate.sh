@@ -64,8 +64,9 @@ echo -e "Don't forget that \e[1myou must have imported \e[93mca.crt\e[39m in you
 
 # Read certificate output directory
 CERTDIRECTORY=$(cat ./CERTDIRECTORY)
+mkdir -p "$CERTDIRECTORY" >/dev/null 2>&1
 
 # Move files to dir
-mv "$DOMAIN.crt" "$CERTDIRECTORY"
-mv "$DOMAIN.key" "$CERTDIRECTORY"
-mv fullchain.pem "$CERTDIRECTORY"
+mv "$DOMAIN.crt" "$CERTDIRECTORY/"
+mv "$DOMAIN.key" "$CERTDIRECTORY/"
+mv fullchain.pem "$CERTDIRECTORY/"
