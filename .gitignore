@@ -3,3 +3,4 @@ CERTDIRECTORY
 *.crt
 *.srl
 *.pem
+CASUBJECT

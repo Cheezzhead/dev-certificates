@@ -19,7 +19,8 @@ fi
 openssl genrsa -out ca.key 2048
 
 # Generate root certificate
-openssl req -x509 -new -nodes -subj "/C=US/O=_Development CA/CN=Development certificates" -key ca.key -sha256 -days 3650 -out ca.crt
+CASUBJECT=$(cat ./CASUBJECT)
+openssl req -x509 -new -nodes -subj "${CASUBJECT}" -key ca.key -sha256 -days 3650 -out ca.crt
 
 echo -e "\e[42mSuccess!\e[49m"
 echo
