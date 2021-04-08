@@ -54,6 +54,9 @@ openssl x509 -req \
 rm "$DOMAIN.csr"
 rm "$DOMAIN.ext"
 
+# Create a fullchain file
+cat "$DOMAIN.crt" "ca.crt" > fullchain.pem
+
 echo -e "\e[42mSuccess!\e[49m"
 echo
 echo -e "You can now use \e[93m$DOMAIN.key\e[39m and \e[93m$DOMAIN.crt\e[39m in your web server."
