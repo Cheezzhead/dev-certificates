@@ -26,7 +26,8 @@ fi
 openssl genrsa -out "$DOMAIN.key" 2048
 
 # Create a certificate signing request
-openssl req -new -subj "/C=US/O=Local Development/CN=$DOMAIN" -key "$DOMAIN.key" -out "$DOMAIN.csr"
+CASUBJECT=$(cat ./CASUBJECT)
+openssl req -new -subj "$CASUBJECT/CN=$DOMAIN" -key "$DOMAIN.key" -out "$DOMAIN.csr"
 
 # Create a config file for the extensions
 >"$DOMAIN.ext" cat <<-EOF
